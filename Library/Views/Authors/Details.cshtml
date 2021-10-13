@@ -23,7 +23,20 @@ else
   }
   </ul>
 }
-
+@if(ViewBag.NoBooks)
+{
+  <p>There are no books currently associated with this Author.</p>
+}
+else
+{
+  @using (Html.BeginForm("AddBook", "Authors"))
+  {
+    @Html.HiddenFor(model => model.AuthorId)
+    @Html.Label("Add Book")
+    @Html.DropDownList("BookId")
+    <input type="submit" value="save"/>
+  }
+}
 
 <p>@Html.ActionLink("Back to authors", "Index")</p>
 <p>@Html.ActionLink("Edit Author", "Edit", new { id = Model.AuthorId })</p>

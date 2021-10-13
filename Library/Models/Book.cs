@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Library.Models
 {
@@ -14,6 +15,7 @@ namespace Library.Models
 
     public string Genre { get; set; }
 
+    [DisplayFormat(DataFormatString = "{0:MMMM dd, yyyy}")]
     public DateTime ReleaseDate { get; set; }
 
     public virtual ICollection<AuthorBook> JoinEntities { get; }
